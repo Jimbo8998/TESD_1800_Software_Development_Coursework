@@ -1,0 +1,19 @@
+ATM System Planning:
+
+- Create an array of 10 Account objects with IDs 0 through 9 and initial balance $100.
+- Prompt user to enter an ID.
+- Validate that ID is between 0 and 9. If invalid, prompt again.
+- Once logged in, show menu:
+  1. View balance
+  2. Withdraw
+  3. Deposit
+  4. Exit menu and return to ID prompt
+- Use a loop so the menu repeats until the user selects 4.
+- After exiting the menu, the system prompts for ID again.
+- This cycle continues infinitely until program is manually closed.
+
+Steps to be repeated:
+
+- ID prompt and validation
+- Displaying the menu
+- Executing user choices within the menu

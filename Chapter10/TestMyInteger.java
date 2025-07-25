@@ -1,71 +1,26 @@
-public class MyInteger {
-    private int value;
+public class TestMyInteger {
+    public static void main(String[] args) {
+        MyInteger num = new MyInteger(17);
 
-    public MyInteger(int value) {
-        this.value = value;
-    }
+        System.out.println("Value: " + num.getValue());
+        System.out.println("isEven(): " + num.isEven());
+        System.out.println("isOdd(): " + num.isOdd());
+        System.out.println("isPrime(): " + num.isPrime());
 
-    public int getValue() {
-        return value;
-    }
+        System.out.println("isEven(10): " + MyInteger.isEven(10));
+        System.out.println("isOdd(10): " + MyInteger.isOdd(10));
+        System.out.println("isPrime(10): " + MyInteger.isPrime(10));
 
-    public boolean isEven() {
-        return value % 2 == 0;
-    }
+        MyInteger num2 = new MyInteger(10);
+        System.out.println("isEven(MyInteger): " + MyInteger.isEven(num2));
+        System.out.println("isOdd(MyInteger): " + MyInteger.isOdd(num2));
+        System.out.println("isPrime(MyInteger): " + MyInteger.isPrime(num2));
 
-    public boolean isOdd() {
-        return value % 2 != 0;
-    }
+        System.out.println("equals(17): " + num.equals(17));
+        System.out.println("equals(MyInteger): " + num.equals(num2));
 
-    public boolean isPrime() {
-        if (value <= 1) return false;
-        for (int i = 2; i <= Math.sqrt(value); i++) {
-            if (value % i == 0) return false;
-        }
-        return true;
-    }
-
-    public static boolean isEven(int n) {
-        return n % 2 == 0;
-    }
-
-    public static boolean isOdd(int n) {
-        return n % 2 != 0;
-    }
-
-    public static boolean isPrime(int n) {
-        if (n <= 1) return false;
-        for (int i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i == 0) return false;
-        }
-        return true;
-    }
-
-    public static boolean isEven(MyInteger n) {
-        return n.isEven();
-    }
-
-    public static boolean isOdd(MyInteger n) {
-        return n.isOdd();
-    }
-
-    public static boolean isPrime(MyInteger n) {
-        return n.isPrime();
-    }
-
-    public boolean equals(int n) {
-        return value == n;
-    }
-
-    public boolean equals(MyInteger n) {
-        return value == n.getValue();
-    }
-
-    public static int parseInt(char[] chars) {
-        return Integer.parseInt(new String(chars));
-    }
-
-    public static int parseInt(String str) {
-        return Integer.parseInt(str);
+        char[] charArr = {'1', '2', '3'};
+        System.out.println("parseInt(char[]): " + MyInteger.parseInt(charArr));
+        System.out.println("parseInt(String): " + MyInteger.parseInt("456"));
     }
 }

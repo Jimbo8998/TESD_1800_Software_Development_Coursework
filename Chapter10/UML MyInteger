@@ -1,0 +1,29 @@
+Class Name: MyInteger
+
+Data Field:
+
+- value is int
+
+Constructor:
+
+- MyInteger(int value)
+
+Method:
+
+- getValue(): int
+- isEven(): boolean
+- isOdd(): boolean
+- isPrime(): boolean
+- equals(int): boolean
+- equals(MyInteger): boolean
+
+Static Methods:
+
+- isEven(int): boolean
+- isOdd(int): boolean
+- isPrime(int): boolean
+- isEven(MyInteger): boolean
+- isOdd(MyInteger): boolean
+- isPrime(MyInteger): boolean
+- parseInt(char[]): int
+- parseInt(String): int

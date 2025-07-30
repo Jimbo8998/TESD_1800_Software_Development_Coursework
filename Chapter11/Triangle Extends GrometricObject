@@ -1,0 +1,14 @@
+Triangle extends GeometricObject
+
+-side1: double = 1.0
+-side2: double = 1.0
+-side3: double = 1.0
+
++Triangle()
++Triangle(side1: double, side2: double, side3: double)
++getSide1(): double
++getSide2(): double
++getSide3(): double
++getArea(): double
++getPerimeter(): double
++toString(): String

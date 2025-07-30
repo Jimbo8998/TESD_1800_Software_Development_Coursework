@@ -27,7 +27,7 @@ public class TestTriangle {
         System.out.println("\nTriangle Details:");
         System.out.println("Area: " + triangle.getArea());
         System.out.println("Perimeter: " + triangle.getPerimeter());
-        System.out.println("Color: " triangle.getColor());
+        System.out.println("Color: " + triangle.getColor());
         System.out.println("Date Created: " + triangle.getDateCreated());
         System.out.println("Filled: " + triangle.isFilled());
     }

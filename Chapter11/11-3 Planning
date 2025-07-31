@@ -1,0 +1,21 @@
+         Account
+
+- accountNumber: int
+- balance: double
+- annualInterestRate: double
+- dateCreated: Date
+
++ deposit(amount: double): void
++ withdraw (amount: double): void
+
+
+         Checking Account
+
+- overdraftLimit: double
+
++ withdraw(amount: double): void
+
+
+         SavingAccount
+
++ withdraw(amount: double): void

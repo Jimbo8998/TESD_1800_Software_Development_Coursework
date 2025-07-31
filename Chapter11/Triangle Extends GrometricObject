@@ -1,4 +1,4 @@
-Triangle extends GeometricObject
+Triangle
 
 -side1: double = 1.0
 -side2: double = 1.0

@@ -1,0 +1,44 @@
+-------------------------------
+Account
+-------------------------------
+- id: int
+- balance: double
+- annualInterestRate: double
+- dateCreated: Date
+-------------------------------
++ Account()
++ Account(id: int, balance: double)
++ getId(): int
++ setId(id: int): void
++ getBalance(): double
++ setBalance(balance: double): void
++ getAnnualInterestRate(): double
++ setAnnualInterestRate(rate: double): void
++ getDateCreated(): Date
++ getMonthlyInterestRate(): double
++ getMonthlyInterest(): double
++ withdraw(amount: double): void
++ deposit(amount: double): void
++ toString(): String
+-------------------------------
+
+-------------------------------
+CheckingAccount (extends Account)
+-------------------------------
+- overdraftLimit: double
+-------------------------------
++ CheckingAccount(id: int, balance: double, overdraftLimit: double)
++ setOverdraftLimit(limit: double): void
++ getOverdraftLimit(): double
++ withdraw(amount: double): void
++ toString(): String
+-------------------------------
+
+-------------------------------
+SavingsAccount (extends Account)
+-------------------------------
+-------------------------------
++ SavingsAccount(id: int, balance: double)
++ withdraw(amount: double): void
++ toString(): String
+-------------------------------

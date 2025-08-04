@@ -1,0 +1,6 @@
+if (index >= 0 && index < array.length) {
+    // Safe to access array[index]
+} else {
+    // Index out of range
+    System.out.println("Out of Bounds");
+}

@@ -1,1 +1,4 @@
-
+I will use a PrintWriter to write data to the file because it provides a simple way to write text output.
+I will generate 100 random integers and write them into the file, separated by spaces.
+To read the file, I will use a scanner, which can easily read integers from text files.
+I will store the integers in an ArrayList, sort them using Collections.sort(), and then display them in increasing order.

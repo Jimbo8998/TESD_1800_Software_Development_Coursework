@@ -1,1 +1,40 @@
+/**
+ * Name: James Jacobson
+ * Date: August 5, 2025
+ * Exercise 12.15
+ *
+ * This program creates a file named Exercise12_15.txt if it does not exist.
+ * It writes 100 randomly generated integers (0–99) separated by spaces into the file.
+ * The program then reads the integers back, sorts them in increasing order,
+ * and displays the sorted numbers on the console.
+ */
 
+import java.io.*;
+import java.util.*;
+
+public class Exercise12_15 {
+    public static void main(String[] args) throws IOException {
+        File file = new File("Exercise12_15.txt");
+
+        if(!file.exists()) {
+            try (PrintWriter output = new PrintWriter(file)) {
+                Random rand = new Random();
+                for (int i = 0; i < 100; i++) {
+                    output.print(rand.nextInt(100) + " ");                    
+                }
+            }
+        }
+        List<Integer> numbers = new ArrayList<>();
+        try (Scanner sc = new Scanner(file)) {
+            while (sc. hasNextInt()) {
+                numbers.add(sc.nextInt());
+            }
+        }
+        Collections.sort(numbers);
+
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}

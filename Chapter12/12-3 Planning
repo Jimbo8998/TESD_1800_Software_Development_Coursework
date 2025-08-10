@@ -1,6 +1,16 @@
-if (index >= 0 && index < array.length) {
-    // Safe to access array[index]
-} else {
-    // Index out of range
-    System.out.println("Out of Bounds");
-}
+When is the error triggered?
+- When accessing the array element with an invalid index: at data[idx] if idx < 0 or idx >= data.length.
+
+ How would you check this?
+- Option A (bounds check):
+  if (idx < 0 || idx >= data.length) {
+      System.out.println("Out of Bounds");
+  } else {
+      System.out.println("Value: " + data[idx]);
+  }
+- Option B (try/catch demonstration):
+  try {
+      System.out.println("Value: " + data[idx]); // triggers if index is invalid
+  } catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println("Out of Bounds");
+  }

@@ -1,27 +1,31 @@
-import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class ArrayIndexCheck {
+public class Main {
+    private static final int SIZE = 100;
+    private static final int BOUND = 1000;
+
     public static void main(String[] args) {
-        // Create an array of 100 random integers (0-999)
-        int[] numbers = new int[100];
-        Random random = new Random();
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = random.nextInt(1000); 
+        int[] data = new int[SIZE];
+        for (int i = 0; i < data.length; i++) {
+            data[i] = ThreadLocalRandom.current().nextInt(BOUND);
         }
 
-        // Prompt the user for index
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter an index (0-99): ");
-        int index = input.nextInt();
+        @SuppressWarnings("resource")
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an index (0-" + (SIZE - 1) + "): ");
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid input");
+            return;
+        }
+        int idx = sc.nextInt();
 
-        // Check index and display element or message
-        if (index >= 0 && index < numbers.length) {
-            System.out.println("Element at index " + index + ": " + numbers[index]);
-        } else {
+        try {
+            // This is the point where ArrayIndexOutOfBoundsException would be triggered
+            System.out.println("Value: " + data[idx]);
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Out of Bounds");
         }
-
-        input.close();
+        // Note: not closing Scanner to avoid closing System.in
     }
 }

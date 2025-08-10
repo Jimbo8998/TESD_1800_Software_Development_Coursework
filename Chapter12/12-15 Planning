@@ -1,4 +1,38 @@
-I will use a PrintWriter to write data to the file because it provides a simple way to write text output.
-I will generate 100 random integers and write them into the file, separated by spaces.
-To read the file, I will use a scanner, which can easily read integers from text files.
-I will store the integers in an ArrayList, sort them using Collections.sort(), and then display them in increasing order.
+Goal
+- Create a file named Exercise12_15.txt (if it doesn’t exist).
+- Write 100 random integers into the file separated by spaces (text I/O).
+- Read the data back from the file, sort in increasing order, and display.
+
+How I will write to the file
+- Use PrintWriter in a try-with-resources block for simple text output.
+- Generate 100 random integers (e.g., ThreadLocalRandom.current().nextInt(bound)).
+- Write them separated by single spaces (and a trailing newline for readability).
+- Ensure the file exists/created: new File("Exercise12_15.txt").createNewFile() is optional; PrintWriter on a File will create it if missing.
+
+How I will read from the file
+- Use Scanner with default whitespace delimiter to read ints from the text file.
+- Store the integers in an ArrayList<Integer> as they’re read.
+- Sort using Collections.sort(list).
+- Display the sorted numbers in increasing order (space-separated or one per line).
+
+Notes and error handling
+- Use try-with-resources for both PrintWriter and Scanner so files close automatically.
+- Catch and report IOException/FileNotFoundException if they occur.
+- Keep exactly 100 integers for writing; when reading, accept however many are present.
+
+High-level pseudocode
+- Writing:
+  try (PrintWriter out = new PrintWriter("Exercise12_15.txt")) {
+      for i in 0..99:
+          n = random int
+          out.print(n)
+          if i < 99: out.print(" ")
+      out.println()
+  }
+- Reading and displaying:
+  List<Integer> nums = new ArrayList<>()
+  try (Scanner sc = new Scanner(new File("Exercise12_15.txt"))) {
+      while (sc.hasNextInt()) nums.add(sc.nextInt())
+  }
+  Collections.sort(nums)
+  print nums in increasing order

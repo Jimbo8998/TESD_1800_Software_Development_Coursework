@@ -1,0 +1,12 @@
+Octagon : GeometricObject, Comparable<Octagon>, Cloneable
+--------------------------------
+- side: double
+--------------------------------
++ Octagon()
++ Octagon(side: double)
++ getSide(): double
++ setSide(s: double): void
++ getArea(): double
++ getPerimeter(): double
++ compareTo(o: Octagon): int
++ clone(): Object

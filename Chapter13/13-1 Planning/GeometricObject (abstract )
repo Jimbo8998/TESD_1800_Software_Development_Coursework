@@ -1,0 +1,14 @@
+--------------------------------
+- color: String
+- filled: boolean
+- dateCreated: java.util.Date
+--------------------------------
++ GeometricObject()
++ GeometricObject(color: String, filled: boolean)
++ getColor(): String
++ setColor(color: String): void
++ isFilled(): boolean
++ setFilled(filled: boolean): void
++ getDateCreated(): java.util.Date
+# getArea(): double   {abstract}
+# getPerimeter(): double   {abstract}

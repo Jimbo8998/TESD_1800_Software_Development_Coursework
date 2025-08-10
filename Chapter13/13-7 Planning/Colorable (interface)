@@ -1,0 +1,3 @@
+Colorable (interface)
+--------------------------------
++ howToColor(): void

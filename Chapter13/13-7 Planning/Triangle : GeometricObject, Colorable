@@ -1,0 +1,18 @@
+--------------------------------
+- side1: double
+- side2: double
+- side3: double
+--------------------------------
++ Triangle()
++ Triangle(side1: double, side2: double, side3: double)
++ Triangle(side1: double, side2: double, side3: double, color: String, filled: boolean)
++ getSide1(): double
++ getSide2(): double
++ getSide3(): double
++ setSide1(s: double): void
++ setSide2(s: double): void
++ setSide3(s: double): void
++ getArea(): double
++ getPerimeter(): double
++ howToColor(): void
+q

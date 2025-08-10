@@ -1,0 +1,3 @@
+Comparable<T> (interface)
+--------------------------------
++ compareTo(o: T): int

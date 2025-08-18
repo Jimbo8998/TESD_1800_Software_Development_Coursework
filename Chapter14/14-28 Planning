@@ -12,4 +12,4 @@ Clock Pane
 
 clockPane.setHourHandVisible(true);
 clockPane.setMinuteHandVisible(true);
-clockPane.setSecondHandVisible(alse);
+clockPane.setSecondHandVisible(false);

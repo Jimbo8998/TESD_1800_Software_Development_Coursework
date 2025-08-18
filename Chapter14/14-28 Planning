@@ -1,1 +1,12 @@
+Clock Pane
 
+- hourHandVisible: boolean
+- minuteHandVisible: boolean
+- secondHandVisible: boolean
+
++ isHourVisible(): boolean
++ setHourHandVisible(boolean): void
++ isMinuteHandVisible(): boolean
++ setMinuteHandVisible(boolean): void
++ isSecondHandVisible(): boolean
++ setSecondHandVisible(boolean): void

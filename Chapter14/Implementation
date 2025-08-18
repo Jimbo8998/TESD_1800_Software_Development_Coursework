@@ -1,0 +1,65 @@
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class OctagonImplementation extends Application {
+    private static final int SIDES = 8; // Octagon Sides
+    private static double RADIUS_FACTOR = 0.40; //Percent of min(width,height);
+    private static double STROKE_WIDTH = 8.0;
+
+    @Override
+    public void start(Stage primaryStage) {
+        Polygon octagon = new Polygon();
+        octagon.setFill(Color.RED);
+        octagon.setStroke(Color.WHITE);
+        octagon.setStrokeWidth(STROKE_WIDTH);
+
+        Text label = new Text("STOP");
+        label.setFill(Color.WHITE);
+        label.setFont(Font.font("Arial Black", FontWeight.BOLD, 40)); // Will be resized in paint()
+
+        StackPane root = new StackPane(octagon, label);
+        root.setAlignment(Pos.CENTER);
+
+        Scene scene = new Scene(root, 400, 400);
+
+        // Repaint whenever size changes
+        root.widthProperty().addListener((obs, ov, nv) -> paint(octagon, label, root.getWidth(), root.getHeight()));
+        root.heightProperty().addListener((obs, ov, nv) -> paint(octagon, label, root.getWidth(), root.getHeight()));
+        paint(octagon, label, scene.getWidth(), scene.getHeight()); // initial draw
+
+        primaryStage.setTitle("ShowPolygon");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    private void paint(Polygon shape, Text label, double w, double h) {
+        double cx = w / 2.0;
+        double cy = h / 2.0;
+        double r = RADIUS_FACTOR * Math.min(w, h);
+
+        // Rotate 22.5° so the top/bottom are flat like a real stop sign
+        double angleOffset = Math.PI / SIDES; // 180°/8 = 22.5°
+
+        ObservableList<Double> pts = shape.getPoints();
+        pts.clear();
+        for (int i = 0; i < SIDES; i++) {
+            double a = 2 * Math.PI * i / SIDES + angleOffset;
+            pts.add(cx + r * Math.cos(a));
+            pts.add(cy + r * Math.sin(a));
+        }
+        // Scale the text to fit nicely inside the octagon
+        label.setFont(Font.font("Arial Black", FontWeight.BOLD, Math.max(9.0, r * 0.42)));
+    }
+    public static void main(String[] args) {
+        launch(args);
+    }
+}

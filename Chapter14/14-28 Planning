@@ -1,5 +1,4 @@
 Clock Pane
-
 - hourHandVisible: boolean
 - minuteHandVisible: boolean
 - secondHandVisible: boolean
@@ -10,3 +9,7 @@ Clock Pane
 + setMinuteHandVisible(boolean): void
 + isSecondHandVisible(): boolean
 + setSecondHandVisible(boolean): void
+
+clockPane.setHourHandVisible(true);
+clockPane.setMinuteHandVisible(true);
+clockPane.setSecondHandVisible(alse);

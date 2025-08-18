@@ -1,0 +1,87 @@
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.scene.shape.Polygon;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+
+public class ShowPolygon extends Application {
+	@Override // Override the start method in the Application class
+	public void start(Stage primaryStage) {   
+		// Create a scene and place it in the stage
+		Scene scene = new Scene(new MyPolygon(), 400, 400);
+		primaryStage.setTitle("ShowPolygon"); // Set the stage title
+		primaryStage.setScene(scene); // Place the scene in the stage
+		primaryStage.show(); // Display the stage
+	}
+	
+	/**
+	 * The main method is only needed for the IDE with limited
+	 * JavaFX support. Not needed for running from the command line.
+	 */
+	public static void main(String[] args) {
+		launch(args);
+	}
+}
+
+class MyPolygon extends Pane {
+	private final Polygon octagon = new Polygon();
+	private final Text text = new Text("STOP");
+
+	public MyPolygon() {
+		// Style the static parts once
+		octagon.setFill(Color.web("#C00000")); // deep red
+		octagon.setStroke(Color.WHITE);
+		octagon.setStrokeWidth(8); // white border
+		text.setFill(Color.WHITE);
+		text.setFont(Font.font("Verdana", FontWeight.BOLD, 40)); // size will be adjusted dynamically
+		getChildren().addAll(octagon, text);
+
+		// Repaint when size changes
+		widthProperty().addListener((o, oldV, newV) -> paint());
+		heightProperty().addListener((o, oldV, newV) -> paint());
+
+		// Initial paint (size might be 0 now; layout pass will repaint later as well)
+		paint();
+	}
+
+	private void paint() {
+		double w = getWidth();
+		double h = getHeight();
+		if (w <= 0 || h <= 0) {
+			return; // nothing to draw yet
+		}
+		double centerX = w / 2.0;
+		double centerY = h / 2.0;
+		// Radius leaves space for stroke & text
+		double radius = Math.min(w, h) * 0.40;
+
+		int sides = 8; // octagon
+		ObservableList<Double> pts = octagon.getPoints();
+		pts.clear();
+		// Rotate 22.5 degrees so a flat side is horizontal like a real stop sign
+		double rotation = Math.toRadians(22.5);
+		for (int i = 0; i < sides; i++) {
+			double angle = 2 * Math.PI * i / sides + rotation;
+			pts.add(centerX + radius * Math.cos(angle));
+			pts.add(centerY + radius * Math.sin(angle));
+		}
+
+		// Adjust stroke width relative to size (keep readable border)
+		octagon.setStrokeWidth(Math.max(4, radius * 0.12));
+
+		// Scale and center the STOP text
+		double fontSize = radius * 0.9 * 0.6; // heuristic: 60% of 90% radius
+		text.setFont(Font.font(text.getFont().getFamily(), FontWeight.BOLD, fontSize));
+		// Measure text layout bounds AFTER font set
+		double textW = text.getLayoutBounds().getWidth();
+		double textH = text.getLayoutBounds().getHeight();
+		text.setX(centerX - textW / 2.0);
+		// Adjust Y: layoutBounds is baseline top offset; add ascent approximation
+		text.setY(centerY + textH / 4.0);
+	}
+}

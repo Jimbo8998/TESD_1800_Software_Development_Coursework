@@ -1,0 +1,20 @@
+Clock Pane
+
+- hour: int
+- minute: int
+- second: int
+- hourHandVisible: boolean
+- minuteHandVisible: boolean
+- secondHandVisible: boolean
+
++ setTime(h:int, m:int, s:int): void
++ getHour(): int
++ getMinute(): int
++ getSecond(): int
++ isHourVisible(): boolean
++ setHourHandVisible(v:boolean): void
++ isMinuteHandVisible(): boolean
++ setMinuteHandVisible(v:boolean): void
++ isSecondHandVisible(): boolean
++ setSecondHandVisible(v:boolean): void
++ paintClock(): void

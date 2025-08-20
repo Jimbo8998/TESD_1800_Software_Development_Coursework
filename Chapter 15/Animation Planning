@@ -1,0 +1,17 @@
+1. What graphical objects will you use to make this display?
+I will use a Polygon to create the pentagon shape and a Rectangle to represent the moving object. 
+The rectangle will animate along the outline of the pentagon. I will also use a PathTransition to control the rectangle’s movement along the pentagon’s edges.
+
+2. What listeners will you use?
+I will use a setOnMouseClicked event listener to detect left and right mouse clicks.
+
+A left-click will pause the animation.
+
+A right-click will resume the animation.
+
+3. How will you make the rectangle follow the outline?
+I will use a PathTransition with the pentagon’s outline (converted to a Polyline or Path). This transition will move the rectangle along the pentagon’s perimeter smoothly.
+
+4. How will you change the rectangle’s opacity?
+I will bind the rectangle’s opacity to its current position along the path. 
+For example, I can use a FadeTransition or adjust opacity values dynamically during the path transition so the rectangle gradually becomes more transparent and then less transparent as it moves around.

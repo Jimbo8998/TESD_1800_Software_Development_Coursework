@@ -1,0 +1,18 @@
+Grapgical Objects
+I will use a Circle object from JavaFX to represent the ball.
+A Pane (or StackPane) will be used as the container for displaying the circle and handling the movement.
+A Scene and Stage will display everything.
+Buttons (up, down, left, right) will be used for controlling the movementof the ball.
+
+Listeners
+Each button will use an EventHandler<ActionEvent> (or setOnAction) to detect when it is pressed.
+The handler will call a method to adjust the circle's position on the pane.
+
+Boundary Checking
+Befor moving the circle, check its x and y coordinates against the pane's width and height.
+Use logic like:
+prevent moving up if circle.getCenterY() - radius <= 0.
+prevent moving down if circle.getCenterY() + radius >= pane.getHeight().
+prevent moving left if circle.getCenterX() - radius <= 0.
+prevent moving right if circle.getCenterX() + radius >=pane.getWidth().
+This ensure the ball never disappears outside the window.s

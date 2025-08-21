@@ -1,0 +1,12 @@
+Graphical Objects:
+A borderPane layout. Top: an Hbox with five RadioButtons (Red, Yellow, Black, Orange, Green) in a single ToggleGroup. 
+Center: A Pane holding a Text node that says "Programming is fun". Bottom: An Hbox with two Buttons labeled "<=" and "=>" to move the text left/right.
+
+Listeners: 
+setOnAction on the two move buttons, and a listener on ToggleGroup.selectedToggleProperty() ( or setOnAction for each radio button) to react to color changes.
+
+How to check which radio is selected:
+Read toggleGroup.getSelectedToggle() and either compare it to the known RadioButtons or store a Color in each radio's setUserData and cast the selected toggle's userData.
+
+How to change the text color:
+Set the fill on the Text node, e.g., text.setFill((Color) toggleGroup.getSelectedToggle().getUserData()); (or text.setFill(Color.RED) etc. based on the selected radio).

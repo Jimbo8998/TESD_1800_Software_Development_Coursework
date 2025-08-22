@@ -1,0 +1,17 @@
+Graphical Objects:
+One TextField for entering seconds and one large Label(or Text) to display the remaining time,
+arranged in a centered VBox inside a Scene on the Stage.
+
+Listeners:
+Handle the Enter key with TextField.setOnAction() to start/restart the countdown,
+and optionally timeline.setOnFinished() to trigger music when it reaches zero.
+
+Counting down the timer:
+Use a Timeline with a 1-second KeyFrame that decrements an IntegerProperty each tick,
+binds the label text to that property, 
+and stops when it reaches 0 (disabling the text field while running to prevent edits).
+
+Playing music:
+Load an audio file with Media/MediaPlayer,
+set player.setCycleCount(MediaPlayer.INDEFINITE),
+and call player.play() when the countdown stops at zero (stop the player if the user restarts).
